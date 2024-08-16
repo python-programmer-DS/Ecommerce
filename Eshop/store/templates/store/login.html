@@ -1,22 +1,19 @@
-{% extends 'base.html' %}
+{% extends 'store/base.html' %}  <!-- This must be the first line -->
+
+{% load static %}  <!-- Load static files after extends -->
+
+{% block title %}Login{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1 class="mt-4">Login</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-    {% if error %}
-    <div class="alert alert-danger mt-3">{{ error }}</div>
-    {% endif %}
-</div>
+<h2>Login</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br><br>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    
+    <input type="submit" value="Login">
+</form>
 {% endblock %}

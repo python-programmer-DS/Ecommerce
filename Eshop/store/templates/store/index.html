@@ -1,22 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'store/base.html' %} 
+
+{% load static %}  <!-- Load static files after extends -->
+
+{% block title %}Home{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1 class="mt-4">Products</h1>
-    <div class="row">
-        {% for product in products %}
-        <div class="col-md-4">
-            <div class="card mb-4">
-                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
-                    <p class="card-text">{{ product.description }}</p>
-                    <p class="card-text">Price: ${{ product.price }}</p>
-                    <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Add to Cart</a>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</div>
+<h1>Welcome to Our Store</h1>
+
+<!-- Display the logo -->
+<img src="{% static 'images/logo.png' %}" alt="Logo" style="width: 150px; height: auto;">
+
+<!-- Display the banner -->
+<img src="{% static 'images/banner.jpg' %}" alt="Banner" style="width: 100%; height: auto;">
+
+<p>Check out our products!</p>
 {% endblock %}
